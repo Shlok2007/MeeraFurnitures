@@ -1,0 +1,651 @@
+/*
+ * Stylesheet for the Meera Furnitures website
+ *
+ * This file contains all of the custom styles used across the website.
+ * The design follows a neutral colour palette inspired by wood and fabric tones,
+ * uses modern typography and is responsive across desktop, tablet and mobile
+ * breakpoints. Variables are defined at the top of the file for easy
+ * adjustment of colours and fonts.
+ */
+
+/* CSS Variables for easy theming */
+:root {
+  --primary-colour: #bfa37a;    /* warm wood tone used for accents */
+  --secondary-colour: #f5f1e6;  /* light beige background for sections */
+  --accent-colour: #8a7f66;     /* muted accent for buttons and links */
+  --text-colour: #333333;       /* main text colour */
+  --subtext-colour: #666666;     /* secondary text colour */
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+/* Global resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: var(--secondary-colour);
+  color: var(--text-colour);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-colour);
+  text-decoration: none;
+  transition: colour 0.3s ease;
+}
+
+a:hover {
+  colour: var(--primary-colour);
+}
+
+/* Header and navigation */
+header {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.navbar .logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-colour);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-colour);
+}
+
+/* Dropdown styles */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--white);
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  top: 2.2rem;
+  left: 0;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-colour);
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--secondary-colour);
+}
+
+.nav-links li:hover > .dropdown-content {
+  display: block;
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: var(--text-colour);
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--white);
+  padding: 1rem;
+}
+
+.hero .hero-content h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-colour);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-colour);
+}
+
+/* Section styles */
+section {
+  padding: 4rem 1rem;
+  background-color: var(--secondary-colour);
+}
+
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-colour);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* About Section */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1 1 50%;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--subtext-colour);
+  margin-bottom: 1rem;
+}
+
+.about-image {
+  flex: 1 1 50%;
+}
+
+/* Featured products grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.featured-item {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.featured-item:hover {
+  transform: translateY(-5px);
+}
+
+.featured-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.featured-item h3 {
+  font-size: 1.1rem;
+  margin: 0.75rem 0;
+}
+
+.featured-item a {
+  display: block;
+  padding-bottom: 1rem;
+  font-weight: 600;
+  color: var(--accent-colour);
+}
+
+/* Services Section */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.service-item {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-item i {
+  font-size: 2.5rem;
+  color: var(--primary-colour);
+  margin-bottom: 1rem;
+}
+
+.service-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-item p {
+  font-size: 0.95rem;
+  color: var(--subtext-colour);
+}
+
+/* Testimonials Section */
+.testimonials {
+  background-color: var(--white);
+  padding: 4rem 1rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial {
+  border: 1px solid #e0d8c8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: var(--secondary-colour);
+  position: relative;
+}
+
+.testimonial::before {
+  content: '“';
+  font-size: 3rem;
+  color: var(--primary-colour);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-colour);
+}
+
+/* Newsletter Section */
+.newsletter {
+  background-color: var(--primary-colour);
+  color: var(--white);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.newsletter h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.newsletter input[type="email"] {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  width: 280px;
+  max-width: 100%;
+}
+
+.newsletter button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-colour);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.newsletter button:hover {
+  background-color: var(--white);
+  color: var(--primary-colour);
+}
+
+/* Footer */
+footer {
+  background-color: var(--white);
+  padding: 2rem 1rem;
+  color: var(--subtext-colour);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-colour);
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.social-icons a {
+  margin-right: 0.75rem;
+  font-size: 1.4rem;
+  color: var(--accent-colour);
+  transition: colour 0.3s ease;
+}
+
+.social-icons a:hover {
+  colour: var(--primary-colour);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e8e0d0;
+  font-size: 0.85rem;
+}
+
+/* Products page */
+.search-bar {
+  max-width: var(--max-width);
+  margin: 0 auto 2rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 4px;
+  border: 1px solid #d8cbb5;
+}
+
+.product-category {
+  margin-bottom: 3rem;
+}
+
+.product-category h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-colour);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card .product-info {
+  padding: 1rem;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-colour);
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: var(--subtext-colour);
+  margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+  font-weight: 700;
+  color: var(--primary-colour);
+}
+
+/* Services page */
+.service-page .services-list {
+  margin-top: 2rem;
+}
+
+/* Contact page */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.contact-details {
+  flex: 1 1 40%;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.contact-details h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-details ul {
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.contact-details ul li {
+  margin-bottom: 0.75rem;
+}
+
+.map-container {
+  flex: 1 1 55%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.contact-form {
+  margin-top: 2rem;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.contact-form h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem 2rem;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d8cbb5;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.contact-form form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-colour);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  grid-column: span 2;
+  justify-self: start;
+}
+
+.contact-form button:hover {
+  background-color: var(--accent-colour);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    flex-direction: column;
+    width: 200px;
+    border: 1px solid #e0d8c8;
+    display: none;
+  }
+  .nav-links li {
+    margin: 0;
+    border-bottom: 1px solid #e8e0d0;
+  }
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .about {
+    flex-direction: column;
+  }
+  .contact-wrapper {
+    flex-direction: column;
+  }
+  .contact-form form {
+    grid-template-columns: 1fr;
+  }
+  .contact-form button {
+    grid-column: span 1;
+  }
+}
